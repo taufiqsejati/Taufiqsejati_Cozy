@@ -17,7 +17,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   bool isFavorite = false;
-  int index = 0;
+  // int index = 0;
   @override
   Widget build(BuildContext context) {
     launchUrl(String url) async {
@@ -189,32 +189,59 @@ class _DetailPageState extends State<DetailPage> {
                           height: 12,
                         ),
                         Container(
-                          height: 88,
-                          child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children: widget.space.photos.map((item) {
-                                index++;
-                                return Container(
-                                  margin: EdgeInsets.only(
-                                    right: 24,
-                                    left: index == 1 ? 24 : 0,
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(16),
-                                        child: Image.network(
-                                          item,
-                                          width: 110,
-                                          height: 88,
-                                          fit: BoxFit.cover,
-                                        ),
+                            height: 88,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: widget.space.photos.length,
+                                itemBuilder: (_, index) => Container(
+                                      margin: EdgeInsets.only(
+                                          left: 24,
+                                          right: (index ==
+                                                  widget.space.photos.length -
+                                                      1)
+                                              ? 24
+                                              : 0),
+                                      child: Column(
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(16),
+                                            child: Image.network(
+                                              widget.space.photos[index],
+                                              width: 110,
+                                              height: 88,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                );
-                              }).toList()),
-                        ),
+                                    ))
+
+                            // ListView(
+                            //     scrollDirection: Axis.horizontal,
+                            //     children: widget.space.photos.map((item) {
+                            //       index++;
+                            //       return Container(
+                            //         margin: EdgeInsets.only(
+                            //           right: 24,
+                            //           left: index == 1 ? 24 : 0,
+                            //         ),
+                            //         child: Column(
+                            //           children: [
+                            //             ClipRRect(
+                            //               borderRadius: BorderRadius.circular(16),
+                            //               child: Image.network(
+                            //                 item,
+                            //                 width: 110,
+                            //                 height: 88,
+                            //                 fit: BoxFit.cover,
+                            //               ),
+                            //             ),
+                            //           ],
+                            //         ),
+                            //       );
+                            //     }).toList()),
+                            ),
                         SizedBox(
                           height: 30,
                         ),
@@ -295,6 +322,7 @@ class _DetailPageState extends State<DetailPage> {
                       onTap: () {
                         setState(() {
                           isFavorite = !isFavorite;
+                          // index = 0;
                         });
                       },
                       child: Image.asset(
