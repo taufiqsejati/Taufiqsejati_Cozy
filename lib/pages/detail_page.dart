@@ -73,7 +73,7 @@ class _DetailPageState extends State<DetailPage> {
           child: Stack(
             children: [
               Image.network(
-                widget.space.imageUrl,
+                widget.space.imageUrl.toString(),
                 width: MediaQuery.of(context).size.width,
                 height: 350,
                 fit: BoxFit.cover,
@@ -104,7 +104,7 @@ class _DetailPageState extends State<DetailPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    widget.space.name,
+                                    widget.space.name.toString(),
                                     style:
                                         blackTextStyle.copyWith(fontSize: 22),
                                   ),
@@ -129,7 +129,7 @@ class _DetailPageState extends State<DetailPage> {
                                     margin: EdgeInsets.only(left: 2),
                                     child: RatingItem(
                                       index: index,
-                                      rating: widget.space.rating,
+                                      rating: widget.space.rating ?? 0,
                                     ),
                                   );
                                 }).toList(),
@@ -158,17 +158,17 @@ class _DetailPageState extends State<DetailPage> {
                             children: [
                               FacilityItem(
                                 name: 'kitchen',
-                                total: widget.space.numberOfKitchens,
+                                total: widget.space.numberOfKitchens ?? 0,
                                 imageUrl: 'assets/icon_kitchen.png',
                               ),
                               FacilityItem(
                                 name: 'bedroom',
-                                total: widget.space.numberOfBedrooms,
+                                total: widget.space.numberOfBedrooms ?? 0,
                                 imageUrl: 'assets/icon_bedroom.png',
                               ),
                               FacilityItem(
                                 name: 'Big Lemari',
-                                total: widget.space.numberOfCupboards,
+                                total: widget.space.numberOfCupboards ?? 0,
                                 imageUrl: 'assets/icon_cupboard.png',
                               ),
                             ],
@@ -192,12 +192,12 @@ class _DetailPageState extends State<DetailPage> {
                             height: 88,
                             child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
-                                itemCount: widget.space.photos.length,
+                                itemCount: widget.space.photos?.length,
                                 itemBuilder: (_, index) => Container(
                                       margin: EdgeInsets.only(
                                           left: 24,
                                           right: (index ==
-                                                  widget.space.photos.length -
+                                                  widget.space.photos!.length -
                                                       1)
                                               ? 24
                                               : 0),
@@ -207,7 +207,7 @@ class _DetailPageState extends State<DetailPage> {
                                             borderRadius:
                                                 BorderRadius.circular(16),
                                             child: Image.network(
-                                              widget.space.photos[index],
+                                              widget.space.photos?[index],
                                               width: 110,
                                               height: 88,
                                               fit: BoxFit.cover,
@@ -267,7 +267,7 @@ class _DetailPageState extends State<DetailPage> {
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    launchUrl(widget.space.mapUrl);
+                                    launchUrl(widget.space.mapUrl.toString());
                                     // launchUrl(
                                     //     'https://www.google.com/maps/@-6.2327073,107.0638355,16z?hl=id');
                                   },
@@ -286,13 +286,13 @@ class _DetailPageState extends State<DetailPage> {
                             height: 50,
                             width:
                                 MediaQuery.of(context).size.width - (2 * edge),
-                            child: RaisedButton(
+                            child: ElevatedButton(
                               onPressed: () {
                                 showConfirmation();
                               },
-                              color: purpleColor,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(17)),
+                              // color: purpleColor,
+                              // shape: RoundedRectangleBorder(
+                              //     borderRadius: BorderRadius.circular(17)),
                               child: Text('Book Now',
                                   style: whiteTextStyle.copyWith(fontSize: 18)),
                             )),
