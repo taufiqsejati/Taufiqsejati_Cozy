@@ -2,38 +2,9 @@
   "project_info": {
     "project_number": "309044368033",
     "project_id": "taufiq-cozy",
-    "storage_bucket": "taufiq-cozy.appspot.com"
+    "storage_bucket": "taufiq-cozy.firebasestorage.app"
   },
   "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:309044368033:android:9f46cfbaaf6dd72ada96e0",
-        "android_client_info": {
-          "package_name": "com.example.taufiqsejati_cozy"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "309044368033-67au01uoki1n8vvvk5404f4955f32vas.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDL2laaqPop7jYO23L6CtK6UomvK4qNJvE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "309044368033-67au01uoki1n8vvvk5404f4955f32vas.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:309044368033:android:9652505fdb7ad114da96e0",
@@ -41,12 +12,7 @@
           "package_name": "com.taufiqsejati_cozy"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "309044368033-67au01uoki1n8vvvk5404f4955f32vas.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyDL2laaqPop7jYO23L6CtK6UomvK4qNJvE"
@@ -54,12 +20,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "309044368033-67au01uoki1n8vvvk5404f4955f32vas.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
